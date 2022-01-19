@@ -1,16 +1,21 @@
+import boto3
+
+
+def getBucketName():
+    s3 = boto3.resource('s3')    
+    return s3.buckets.all()
+
 def deleteBucketObjects(bktName):
-    import boto3
+    s3 = boto3.resource('s3')
+    s3.Bucket(bktName).objects.delete()
 
-    AWS_REGION="us-west-1"
-    S3Service=boto3.resource("s3",region_name=AWS_REGION)
+def deleteBucket(bktName):
+    s3 = boto3.resource('s3')
+    s3.Bucket(bktName).delete()
+    
 
-    selectedBucket=S3Service.Bucket(bktName)
-    selectedBucket.objects.delete()
-    print("Deleted Bucket All Objects")
-
-    selectedBucket.delete()
-    print("Deleted Bucket: ",bktName)
-
-buckets=["bkt0595lovelydb7","bkt0595lovelyss5"]
-for bn in buckets:
-    deleteBucketObjects(bn)
+for i in getBucketName():
+    if 'lovely' in i.name:
+       print(i.name)
+       deleteBucketObjects(i.name)
+       deleteBucket(i.name)

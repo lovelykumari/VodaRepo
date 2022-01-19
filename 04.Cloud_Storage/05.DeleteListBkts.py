@@ -11,5 +11,6 @@ def deleteBucketObjects(bktName):
     selectedBucket.delete()
     print("Deleted Bucket: ",bktName)
 
-bucketName="bkt0358lovely"
-deleteBucketObjects(bucketName)
+buckets=["bkt0595lovelydb7","bkt0595lovelyss5"]
+for bn in buckets:
+    deleteBucketObjects(bn)

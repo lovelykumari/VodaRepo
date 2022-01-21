@@ -1,0 +1,21 @@
+{
+    "Resources":{
+        "CreateStorageSolution":{
+            "Type":"AWS::EC2::SecurityGroup",
+            "Properties":{
+                "GroupName":"sgcftv1lovely",
+                "GroupDescription":"Allow http to client host",
+                "VpcId":"vpc-ff8f4594",
+                "SecurityGroupIngress":[
+                    {
+                        "IpProtocol":"tcp",
+                        "FromPort":"80",
+                        "ToPort":"80",
+                        "CidrTp":"0.0.0.0/0"
+                    }
+                ]
+            }
+        }
+        
+    }
+}

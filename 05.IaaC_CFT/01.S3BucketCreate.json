@@ -1,0 +1,14 @@
+{
+    "Resources":{
+        "CreateStorageSolution":{
+            "Type":"AWS::S3::Bucket",
+            "Properties":{
+                "BucketName":"bktcftv1lovely"
+            }
+        },
+        "CreateWebServer":{
+        },
+        "CreateDBServer":{
+        }
+    }
+}

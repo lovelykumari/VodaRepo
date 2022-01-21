@@ -1,0 +1,43 @@
+{
+    "Parameters": {
+        "SGVarName": {
+            "Description": "Enter Unique SG Name: ",
+            "Type": "String"
+        }
+    },
+    "Mappings": {
+        "MyRegionMap": {
+          "us-east-1": {
+            "AMI": "ami-76f00v34"
+          },
+          "us-west-1": {
+            "AMI": "ami-655a0c34"
+          },
+          "eu-west-1": {
+            "AMI": "ami-7fd4erf3"
+          },
+          "ap-south-1": {
+            "AMI": "ami-72621vdf"
+          },
+          "ap-northeast-1": {
+            "AMI": "ami-8e08sdf4"
+          }
+        }
+      },
+    "Resources":{
+        "CreateWebServer":{
+            "Type":"AWS::EC2::Instance",
+            "Properties":{
+                "ImageId":{
+                    "Fn::FindInMap":[
+                        "MyRegionMap",
+                        {
+                            "Ref":"AWS::Region"
+                        },
+                        "AMI"
+                    ]
+                }
+            }
+        }
+    }
+}

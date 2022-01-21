@@ -1,7 +1,7 @@
 {
     "Parameters":{
         "SGvarName":{
-            "Descrption":"Enter Unique ScurityGroup",
+            "Descrption":"Enter Unique Se.encurityGroup",
             "Type":"String"
         }
 
